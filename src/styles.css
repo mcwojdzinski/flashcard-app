@@ -54,6 +54,13 @@
   --radius-full: 9999px;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-neutral-100);
+}
+
 .tp1 {
   @apply text-[24px] md:text-[32px] lg:text-[40px] leading-[1.2] tracking-normal font-[700] font-Poppins;
 }
