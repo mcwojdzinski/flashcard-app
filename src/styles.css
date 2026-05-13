@@ -1,3 +1,91 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import './assets/styles/fonts.css';
 @import 'tailwindcss';
+
+@theme {
+  /* Fonts*/
+  --font-Poppins: 'Poppins', sans-serif;
+
+  /* Neutral colors */
+  --color-neutral-0: #ffffff;
+  --color-neutral-100: #f7f3f0;
+  --color-neutral-600: #6d5b4d;
+  --color-neutral-900: #2e1401;
+
+  /* Accent colors */
+  --color-yellow-500: #f8cb46;
+  --color-blue-400: #92adeb;
+  --color-blue-600: #5072c7;
+  --color-teal-400: #47d9c9;
+  --color-pink-400: #fc8ae5;
+  --color-pink-500: #f073a3;
+  --color-pink-700: #e11966;
+
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-25: 2px;
+  --spacing-50: 4px;
+  --spacing-75: 6px;
+  --spacing-100: 8px;
+  --spacing-125: 10px;
+  --spacing-150: 12px;
+  --spacing-200: 16px;
+  --spacing-250: 20px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-800: 64px;
+  --spacing-1000: 80px;
+  --spacing-1200: 96px;
+  --spacing-1400: 112px;
+  --spacing-1600: 128px;
+  --spacing-1800: 140px;
+
+  /* Radius */
+  --radius-0: 0;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-full: 9999px;
+}
+
+.tp1 {
+  @apply text-[24px] md:text-[32px] lg:text-[40px] leading-[1.2] tracking-normal font-[700] font-Poppins;
+}
+
+.tp2 {
+  @apply text-[24px] leading-[1.2] tracking-normal font-semibold font-Poppins;
+}
+
+.tp3 {
+  @apply text-[20px] leading-[1.2] tracking-normal font-semibold font-Poppins;
+}
+
+.tp4-medium {
+  @apply text-[16px] leading-[1.2] tracking-normal font-medium font-Poppins;
+}
+
+.tp4-regular {
+  @apply text-[16px] leading-[1.2] tracking-normal font-normal font-Poppins;
+}
+
+.tp4-semibold {
+  @apply text-[16px] leading-[1.2] tracking-normal font-semibold font-Poppins;
+}
+
+.tp5-medium {
+  @apply text-[14px] leading-[1.4] tracking-normal font-medium font-Poppins;
+}
+
+.tp5-regular {
+  @apply text-[14px] leading-[1.4] tracking-normal font-normal font-Poppins;
+}
+
+.tp6-medium {
+  @apply text-[12px] leading-[1.3] tracking-[0.97] font-medium font-Poppins;
+}
