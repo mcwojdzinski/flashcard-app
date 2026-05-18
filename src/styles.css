@@ -52,6 +52,10 @@
   --radius-20: 20px;
   --radius-24: 24px;
   --radius-full: 9999px;
+
+  --shadow-input: 2px 2px 0px 0px var(--color-neutral-900);
+  --shadow-input-focus: 2px 2px 0px 0px var(--color-blue-600);
+  --shadow-input-error: 2px 2px 0px 0px var(--color-pink-700);
 }
 
 body {

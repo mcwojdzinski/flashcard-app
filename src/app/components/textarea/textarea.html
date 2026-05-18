@@ -1,0 +1,15 @@
+<div class="flex flex-col gap-y-2 max-w-[400px]">
+  <label class="tp4-medium">
+    {{ labelTitle() }}
+  </label>
+  <textarea
+    class="p-4 h-1200 tp4-regular bg-neutral-0 text-neutral-900 outline-none rounded-6 border hover:border-neutral-900 hover:shadow-input transition focus:shadow-input-focus focus:border-blue-600 resize-none"
+    [ngClass]="{ 'border-pink-700 shadow-input-error hover:none': errorStatus() }"
+    placeholder="{{ placeholder() }}"
+  ></textarea>
+  @if (errorStatus()) {
+    <p class="flex flex-row gap-1.5 items-center tp5-regular text-pink-700">
+      <img src="/icon-error.svg" />{{ errorLabel() }}
+    </p>
+  }
+</div>
