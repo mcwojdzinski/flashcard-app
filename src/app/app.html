@@ -5,3 +5,13 @@
   placeholder="e.g., What is the capital of France?"
 />
 <app-textarea errorLabel="Please enter an answer" labelTitle="Answer" placeholder="Paris" />
+
+<app-button type="primary" text="I Know this" icon="/icon-circle-plus.svg" [isDisabled]="false" />
+<app-button type="secondary" text="Button" icon="/icon-reset.svg" />
+<app-button
+  type="border"
+  text="Button"
+  icon="/icon-chevron-left.svg"
+  iconSecond="/icon-chevron-right.svg"
+/>
+<app-progress-bar [progress]="2" />
