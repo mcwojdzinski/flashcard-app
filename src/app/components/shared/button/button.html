@@ -1,0 +1,14 @@
+<button
+  [disabled]="isDisabled()"
+  [ngClass]="[baseClasses, typeClasses(), isDisabled() ? disabledClasses : '']"
+>
+  @if (icon()) {
+    <img [src]="icon()" />
+  }
+
+  {{ text() }}
+
+  @if (iconSecond()) {
+    <img [src]="iconSecond()" />
+  }
+</button>

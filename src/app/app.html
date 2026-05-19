@@ -1,17 +1,10 @@
-<router-outlet /> <app-logo />
-<app-input
-  errorLabel="Please enter a question"
-  labelTitle="Question"
-  placeholder="e.g., What is the capital of France?"
-/>
-<app-textarea errorLabel="Please enter an answer" labelTitle="Answer" placeholder="Paris" />
+<div class="max-w-310 mx-auto py-6 px-4 md:px-8">
+  <div class="flex flex-row justify-between items-center">
+    <app-logo />
+    <app-tab />
+  </div>
 
-<app-button type="primary" text="I Know this" icon="/icon-circle-plus.svg" [isDisabled]="false" />
-<app-button type="secondary" text="Button" icon="/icon-reset.svg" />
-<app-button
-  type="border"
-  text="Button"
-  icon="/icon-chevron-left.svg"
-  iconSecond="/icon-chevron-right.svg"
-/>
-<app-progress-bar [progress]="2" />
+  <div class="w-full mt-8">
+    <router-outlet />
+  </div>
+</div>

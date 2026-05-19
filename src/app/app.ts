@@ -1,13 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Logo } from './components/logo/logo';
-import { Input } from './components/input/input';
-import { Textarea } from './components/textarea/textarea';
-import { Button } from "./components/button/button";
-import { ProgressBar } from "./components/progress-bar/progress-bar";
+import { Logo } from './components/shared/logo/logo';
+import { Tab } from "./components/shared/tab/tab";
+
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Logo, Input, Textarea, Button, ProgressBar],
+  imports: [RouterOutlet,  Logo, Tab],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

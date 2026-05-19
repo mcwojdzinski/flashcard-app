@@ -1,0 +1,48 @@
+<div>
+  <h1 class="tp1">This is a list of all avaible components in the project:</h1>
+
+  <h2 class="tp2 mb-2.5">Logo component:</h2>
+  <app-logo />
+
+  <hr />
+  <h2 class="tp2 mb-2.5">Input component:</h2>
+  <app-input
+    errorLabel="Please enter a question"
+    labelTitle="Question"
+    placeholder="e.g., What is the capital of France?"
+  />
+  <hr />
+
+  <h2 class="tp2 mb-2.5">Textarea component:</h2>
+  <app-textarea errorLabel="Please enter an answer" labelTitle="Answer" placeholder="Paris" />
+
+  <hr />
+  <h2 class="tp2 mb-2.5">Button component:</h2>
+  <h3 class="tp3">Primary</h3>
+  <app-button type="primary" text="I Know this" icon="/icon-circle-plus.svg" [isDisabled]="false" />
+  <h3 class="tp3">Secondary</h3>
+  <app-button type="secondary" text="Button" icon="/icon-reset.svg" />
+  <h3 class="tp3">Border</h3>
+  <app-button
+    type="border"
+    text="Button"
+    icon="/icon-chevron-left.svg"
+    iconSecond="/icon-chevron-right.svg"
+  />
+
+  <hr />
+  <h2 class="tp2 mb-2.5">Progress bar component:</h2>
+  <app-progress-bar [progress]="2" />
+
+  <hr />
+  <h2 class="tp2 mb-2.5">Tab button base component:</h2>
+  <app-tab-button-base text="Study mode" />
+
+  <hr />
+  <h2 class="tp2 mb-2.5">Tab component:</h2>
+  <app-tab />
+
+  <hr />
+  <h2 class="tp2 mb-2.5">Checkbox component:</h2>
+  <app-checkbox />
+</div>

@@ -1,0 +1,14 @@
+<div
+  class="flex flex-row justify-between rounded-12 border border-neutral-900 border-r-2 border-b-2 h-30 overflow-hidden"
+>
+  <div class="px-5 py-4 flex flex-col justify-between">
+    <p class="tp4-medium">{{ cardTitle() }}</p>
+    <p class="tp1">{{ cardCount() }}</p>
+  </div>
+  <div
+    class="flex justify-center items-center w-[100px] border-l border-neutral-900"
+    [ngClass]="backgroundClass"
+  >
+    <img src="{{ iconClass }}" />
+  </div>
+</div>
