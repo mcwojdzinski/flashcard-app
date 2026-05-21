@@ -1,0 +1,17 @@
+.animate-dropdown {
+  animation: fade-in 0.1s ease-in;
+}
+
+.animate-leave {
+  opacity: 0;
+  transition: 0.1s ease-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

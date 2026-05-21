@@ -1,0 +1,42 @@
+<div class="relative">
+  <button
+    class="flex flex-row gap-2 py-3 px-4 rounded-full border border-neutral-900 tp4-medium transition outline-none bg-neutral-0 text-neutral-900 hover:cursor-pointer focus:"
+    (click)="toggle(); $event.stopPropagation()"
+  >
+    All Categories
+    <img src="/icon-chevron-down.svg" alt="Chevron down icon" />
+  </button>
+  @if (isOpen()) {
+    <div
+      class="dropdown-wrapper absolute top-12.5 left-0 border border-neutral-900 rounded-[8px] shadow-[0_3px_8px_rgba()] bg-neutral-0 w-64.5 z-50 transition animate-dropdown overflow-hidden"
+      animate.enter="animate-dropdown"
+      animate.leave="animate-leave"
+    >
+      <app-categories-dropdown />
+      <div
+        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center hover:cursor-pointer hover:bg-neutral-100"
+      >
+        <app-checkbox class="flex items-center" />
+        <p class="tp5-medium">Art <span class="text-neutral-600">(1)</span></p>
+      </div>
+      <div
+        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center"
+      >
+        <app-checkbox class="flex items-center" />
+        <p class="tp5-medium">CSS <span class="text-neutral-600">(6)</span></p>
+      </div>
+      <div
+        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center"
+      >
+        <app-checkbox class="flex items-center" />
+        <p class="tp5-medium">Art <span class="text-neutral-600">(1)</span></p>
+      </div>
+      <div
+        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center"
+      >
+        <app-checkbox class="flex items-center" />
+        <p class="tp5-medium">Art <span class="text-neutral-600">(1)</span></p>
+      </div>
+    </div>
+  }
+</div>
