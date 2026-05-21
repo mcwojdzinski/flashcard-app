@@ -1,0 +1,23 @@
+<div
+  class="flex flex-col p-[20px] sm:p-[24px] md:[32px] bg-neutral-0 border border-r-4 border-b-4 border-neutral-900 rounded-16 gap-4"
+>
+  <app-input
+    labelTitle="Question"
+    placeholder="e.g., What is the capital of France?"
+    [errorStatus]="false"
+    errorLabel="Please enter a question."
+  />
+  <app-textarea
+    labelTitle="Answer"
+    placeholder="e.g., Paris"
+    [errorStatus]="false"
+    errorLabel="Please enter an answer."
+  />
+  <app-input
+    labelTitle="Category"
+    placeholder="e.g., Geography"
+    [errorStatus]="false"
+    errorLabel="Please enter a category."
+  />
+  <app-button class="pt-6" type="primary" text="Create Card" icon="/icon-circle-plus.svg" />
+</div>

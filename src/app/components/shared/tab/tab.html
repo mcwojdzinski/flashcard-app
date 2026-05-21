@@ -1,6 +1,16 @@
 <div
   class="p-1 flex flex-row shadow-input gap-1 bg-neutral-0 rounded-full w-fit border border-neutral-900"
 >
-  <app-tab-button-base text="Study Mode" [isCurrent]="true" />
-  <app-tab-button-base text="All Cards" [isCurrent]="false" />
+  <a
+    routerLink="/"
+    routerLinkActive
+    #rlaHome="routerLinkActive"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <app-tab-button-base text="Study Mode" [isCurrent]="rlaHome.isActive" />
+  </a>
+
+  <a routerLink="/all-cards" routerLinkActive #rlaCards="routerLinkActive">
+    <app-tab-button-base text="All Cards" [isCurrent]="rlaCards.isActive" />
+  </a>
 </div>

@@ -11,6 +11,7 @@ import { NgClass } from '@angular/common';
 })
 export class FlashcardContent {
   isRevealed = signal(false);
+  question = signal<string>('');
 
   toggle() {
     this.isRevealed.update(v => !v);

@@ -1,18 +1,18 @@
 <div
-  class="hover:cursor-pointer relative rounded-16 border-2 shadow-input h-90 max-h-90 w-full transition"
+  class="hover:cursor-pointer relative rounded-16 border-2 shadow-input h-90 max-h-90 w-full transition-background duration-500"
   [ngClass]="isRevealed() ? 'bg-blue-400' : 'bg-pink-400'"
   (click)="toggle()"
 >
   <app-tag class="absolute top-[24px] left-1/2 -translate-x-1/2" text="Web Development" />
   <div class="absolute px-6 top-[50%] left-[50%] -translate-1/2 w-full">
     <h1
-      class="tp1 text-center text-neutral-900 mb-4 transition-all"
+      class="tp1 text-center text-neutral-900 mb-4 duration-500 transition-all"
       [ngClass]="isRevealed() ? 'tp2 translate-y-9' : null"
     >
       {{ isRevealed() ? 'HyperText Markup Language' : 'What does HTML stand for?' }}
     </h1>
     <p
-      class="tp4-medium text-center text-neutral-900 opacity-80 transition-all"
+      class="tp4-medium text-center text-neutral-900 opacity-80 duration-500 transition-all"
       [ngClass]="isRevealed() ? '-translate-y-10' : null"
     >
       {{ isRevealed() ? 'Answer:' : 'Click to reveal answer' }}
@@ -26,7 +26,7 @@
   />
   <img
     src="/pattern-star-yellow.svg"
-    class="transition absolute bottom-13 left-6.75"
+    class="transition-translate duration-300 absolute bottom-13 left-6.75"
     [ngClass]="isRevealed() ? '-translate-x-3' : null"
     alt="Star yellow"
   />
