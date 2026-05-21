@@ -3,9 +3,12 @@
 >
   <div class="flex flex-row justify-between items-center p-5">
     <div>
-      <div class="flex flex-row gap-2">
-        <app-checkbox />
-        <p class="tp4-medium">Hide Mastered</p>
+      <div class="flex flex-row gap-4 items-center">
+        <app-category-filter />
+        <div class="flex flex-row items-center gap-2">
+          <app-checkbox class="flex items-center" />
+          <p class="tp4-medium">Hide Mastered</p>
+        </div>
       </div>
     </div>
     <app-button type="border" text="Shuffle" icon="/icon-shuffle.svg" />
