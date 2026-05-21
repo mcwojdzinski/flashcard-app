@@ -1,3 +1,6 @@
-<div class="w-15 h-2 border border-neutral-900 rounded-full overflow-hidden bg-neutral-0">
-  <div class="bg-neutral-900 h-full" [style.width.px]="progress() * 12"></div>
+<div class="flex gap-2 items-center">
+  <div class="w-15 h-2 border border-neutral-900 rounded-full overflow-hidden bg-neutral-0">
+    <div class="bg-neutral-900 h-full" [style.width.px]="progress() * 12"></div>
+  </div>
+  <span class="tp6-medium">{{ progress() }}/5</span>
 </div>
