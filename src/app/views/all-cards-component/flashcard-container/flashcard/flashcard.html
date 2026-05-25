@@ -6,20 +6,54 @@
     <p class="tp5-medium opacity-60 mb-[6px]">Answer:</p>
     <p class="tp5-medium">HyperText Markup Language</p>
   </div>
-  <div class="flex flex-row items-center border-t border-neutral-900">
-    <div class="py-3.5 pl-[16px] pr-[10px] border-r border-neutral-900">
-      <app-tag text="Web Development" />
+  <div class="flex flex-row items-center justify-between border-t border-neutral-900 h-14">
+    <div class="flex items-center h-full">
+      <div class="flex items-center pl-[16px] pr-[10px] border-r border-neutral-900 h-full">
+        <app-tag text="Web Development" />
+      </div>
+      <div class="flex h-full items-center p-2">
+        <app-progress-bar [progress]="5" />
+      </div>
     </div>
-    <div class="flex h-full border-r border-neutral-900 pl-2">
-      <app-progress-bar [progress]="1" />
-    </div>
-    <div>
-      <svg width="4" height="15" viewBox="0 0 4 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M1.6875 5.34375C2.60156 5.34375 3.375 6.11719 3.375 7.03125C3.375 7.98047 2.60156 8.71875 1.6875 8.71875C0.738281 8.71875 0 7.98047 0 7.03125C0 6.11719 0.738281 5.34375 1.6875 5.34375ZM0 1.6875C0 0.773438 0.738281 0 1.6875 0C2.60156 0 3.375 0.773438 3.375 1.6875C3.375 2.63672 2.60156 3.375 1.6875 3.375C0.738281 3.375 0 2.63672 0 1.6875ZM0 12.375C0 11.4609 0.738281 10.6875 1.6875 10.6875C2.60156 10.6875 3.375 11.4609 3.375 12.375C3.375 13.3242 2.60156 14.0625 1.6875 14.0625C0.738281 14.0625 0 13.3242 0 12.375Z"
-          fill="#2E1401"
-        />
-      </svg>
+    <div class="flex items-center pl-[8px] pr-[16px] border-l border-neutral-900 h-full">
+      <div class="relative">
+        <button
+          class="hover:cursor-pointer hover:shadow-input transition-all h-[24px] py-1.25 w-[24px] rounded-4 flex items-center justify-center border border-neutral-900"
+          (click)="toggle(); $event.stopPropagation()"
+        >
+          <svg
+            width="4"
+            height="15"
+            viewBox="0 0 4 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.6875 5.34375C2.60156 5.34375 3.375 6.11719 3.375 7.03125C3.375 7.98047 2.60156 8.71875 1.6875 8.71875C0.738281 8.71875 0 7.98047 0 7.03125C0 6.11719 0.738281 5.34375 1.6875 5.34375ZM0 1.6875C0 0.773438 0.738281 0 1.6875 0C2.60156 0 3.375 0.773438 3.375 1.6875C3.375 2.63672 2.60156 3.375 1.6875 3.375C0.738281 3.375 0 2.63672 0 1.6875ZM0 12.375C0 11.4609 0.738281 10.6875 1.6875 10.6875C2.60156 10.6875 3.375 11.4609 3.375 12.375C3.375 13.3242 2.60156 14.0625 1.6875 14.0625C0.738281 14.0625 0 13.3242 0 12.375Z"
+              fill="#2E1401"
+            />
+          </svg>
+        </button>
+        @if (isOpen()) {
+          <div
+            class="absolute z-99 rounded-8 shadow-[0_3px_8px_0_rgba(46,20,1,0.2)] flex flex-col bottom-[180%] right-[-10px] mt-14 ml-2 bg-neutral-0 border border-neutral-900 w-1800 overflow-hidden transition animate-dropdown"
+          >
+            <button
+              class="hover:cursor-pointer hover:bg-neutral-100 py-[8px] px-[16px] flex items-center gap-2 border-b border-neutral-900"
+              (click)="openEdit()"
+            >
+              <img src="/icon-edit.svg" alt="Edit icon" /> <span class="tp5-medium"> Edit</span>
+            </button>
+            <button
+              class="hover:cursor-pointer hover:bg-neutral-100 py-[8px] px-[16px] flex items-center gap-2"
+              (click)="openDelete()"
+            >
+              <img src="/icon-delete.svg" alt="Delete icon" />
+              <span class="tp5-medium"> Delete</span>
+            </button>
+          </div>
+        }
+      </div>
     </div>
   </div>
 </div>

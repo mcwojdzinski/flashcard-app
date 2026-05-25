@@ -4,20 +4,32 @@
   <app-input
     labelTitle="Question"
     placeholder="e.g., What is the capital of France?"
-    [errorStatus]="false"
+    [value]="questionValue()"
+    (valueChange)="questionValue.set($event)"
+    [errorStatus]="questionError()"
     errorLabel="Please enter a question."
   />
   <app-textarea
     labelTitle="Answer"
     placeholder="e.g., Paris"
-    [errorStatus]="false"
+    [value]="answerValue()"
+    (valueChange)="answerValue.set($event)"
+    [errorStatus]="answerError()"
     errorLabel="Please enter an answer."
   />
   <app-input
     labelTitle="Category"
     placeholder="e.g., Geography"
-    [errorStatus]="false"
+    [value]="categoryValue()"
+    (valueChange)="categoryValue.set($event)"
+    [errorStatus]="categoryError()"
     errorLabel="Please enter a category."
   />
-  <app-button class="pt-6" type="primary" text="Create Card" icon="/icon-circle-plus.svg" />
+  <app-button
+    class="pt-6"
+    type="primary"
+    text="Create Card"
+    icon="/icon-circle-plus.svg"
+    (click)="onCreate()"
+  />
 </div>
