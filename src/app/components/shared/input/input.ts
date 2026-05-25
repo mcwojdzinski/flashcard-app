@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -12,4 +12,11 @@ export class Input {
   placeholder = input<string>();
   errorLabel = input<string>();
   errorStatus = input<boolean>(true);
+  value = input<string>('');
+  valueChange = output<string>();
+
+  onInputChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.valueChange.emit(target.value);
+  }
 }

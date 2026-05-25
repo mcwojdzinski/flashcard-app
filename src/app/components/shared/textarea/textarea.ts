@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-textarea',
@@ -12,4 +12,11 @@ export class Textarea {
   placeholder = input<string>();
   errorLabel = input<string>();
   errorStatus = input<boolean>(true);
+  value = input<string>('');
+  valueChange = output<string>();
+
+  onTextareaChange(event: Event) {
+    const target = event.target as HTMLTextAreaElement;
+    this.valueChange.emit(target.value);
+  }
 }

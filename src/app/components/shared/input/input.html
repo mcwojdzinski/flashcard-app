@@ -6,6 +6,8 @@
     class="p-4 tp4-regular bg-neutral-0 text-neutral-900 outline-none rounded-6 border hover:border-neutral-900 hover:shadow-input transition focus:shadow-input-focus focus:border-blue-600"
     [ngClass]="{ 'border-pink-700 shadow-input-error hover:none': errorStatus() }"
     placeholder="{{ placeholder() }}"
+    [value]="value()"
+    (input)="onInputChange($event)"
   />
   @if (errorStatus()) {
     <p class="flex flex-row gap-1.5 items-center tp5-regular text-pink-700">

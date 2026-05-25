@@ -1,0 +1,84 @@
+@if (isOpen()) {
+  <dialog
+    #dialogElement
+    class="rounded-16 border border-r-4 border-b-4 border-neutral-900 bg-neutral-0 shadow-[0_8px_16px_0_rgba(46,20,1,0.15)] w-85.75 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 fixed"
+    open
+    [ngClass]="[mode() === 'delete' ? '' : 'py-[24px] px-[20px]']"
+  >
+    @if (mode() === 'edit') {
+      <button
+        class="hover:cursor-pointer bg-none flex items-center justify-center border-none absolute top-[16px] right-[16px]"
+        (click)="onCancel()"
+        aria-label="Close dialog"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1L15 15M15 1L1 15"
+            stroke="#2E1401"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="tp2">Edit your card</h2>
+      </div>
+      <div class="mb-6">
+        <app-input
+          labelTitle="Question"
+          placeholder="Enter your card content..."
+          [value]="questionValue()"
+          (valueChange)="questionValue.set($event)"
+          errorLabel="Question is required"
+          [errorStatus]="questionError()"
+        />
+      </div>
+      <div class="mb-6">
+        <app-textarea
+          labelTitle="Answer"
+          placeholder="Enter the answer to your question..."
+          [value]="answerValue()"
+          (valueChange)="answerValue.set($event)"
+          errorLabel="Answer is required"
+          [errorStatus]="answerError()"
+        />
+      </div>
+      <div class="mb-6">
+        <app-input
+          labelTitle="Category"
+          placeholder="e.g. Web Development"
+          [value]="categoryValue()"
+          (valueChange)="categoryValue.set($event)"
+          errorLabel="Category is required"
+          [errorStatus]="categoryError()"
+        />
+      </div>
+      <div class="w-full flex justify-end gap-3">
+        <app-button type="primary" text="Update Card" (click)="onUpdate()" />
+      </div>
+    } @else if (mode() === 'delete') {
+      <div class="flex flex-col justify-between items-start pt-[24px] px-[20px] gap-2">
+        <h2 class="tp2">Delete this card?</h2>
+        <p class="tp4-regular text-neutral-900 mb-6">This action can't be undone.</p>
+      </div>
+      <div
+        class="w-full flex justify-end gap-3 pt-[12px] border-t border-neutral-900 pr-[20px] pb-[16px]"
+      >
+        <app-button type="border" text="Cancel" (click)="onCancel()" />
+        <app-button type="primary" text="Delete Card" (click)="onDelete()" />
+      </div>
+    }
+  </dialog>
+  <div
+    class="fixed inset-0 bg-neutral-900 z-40 backdrop"
+    style="opacity: 0.7"
+    (click)="onCancel()"
+  ></div>
+}

@@ -1,0 +1,7 @@
+dialog::backdrop {
+  background-color: rgba(46, 20, 1, 0.7);
+}
+
+.backdrop {
+  pointer-events: auto;
+}

@@ -1,6 +1,16 @@
-<div class="flex gap-2 items-center">
-  <div class="w-15 h-2 border border-neutral-900 rounded-full overflow-hidden bg-neutral-0">
-    <div class="bg-neutral-900 h-full" [style.width.px]="progress() * 12"></div>
+@if (progress() < 5) {
+  <div class="flex gap-2 items-center">
+    <div class="w-15 h-2 border border-neutral-900 rounded-full overflow-hidden bg-neutral-0">
+      <div class="bg-neutral-900 h-full" [style.width.px]="progress() * 12"></div>
+    </div>
+    <span class="tp6-medium">{{ progress() }}/5</span>
   </div>
-  <span class="tp6-medium">{{ progress() }}/5</span>
-</div>
+} @else {
+  <div
+    class="py-1.5 px-3 bg-teal-400 rounded-full border border-neutral-900 shadow-[1px_1px_0_0_rgba(0,0,0,1)]"
+  >
+    <p class="text-center tp6-medium text-neutral-900 flex items-center gap-1.5">
+      <img src="/icon-mastered.svg" alt="Mastered icon" /> Mastered 5/5
+    </p>
+  </div>
+}
