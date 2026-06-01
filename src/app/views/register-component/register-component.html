@@ -1,0 +1,37 @@
+<div
+  class="border-neutral-900 border border-r-[3px] border-b-[3px] w-auto p-[24px] rounded-16 bg-neutral-0 max-w-[400px] mx-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+>
+  <app-logo class="mx-auto mb-6 flex justify-center" />
+  <h1 class="tp2 text-neutral-900">Register</h1>
+  <p class="tp4-regular text-neutral-900">Create a new account to start saving flashcards.</p>
+
+  <app-input
+    labelTitle="Login"
+    placeholder="Enter your username..."
+    [value]="loginValue()"
+    (valueChange)="loginValue.set($event)"
+    errorLabel="Login is required"
+    [errorStatus]="loginError()"
+    class="mt-3 block"
+  />
+  <app-input
+    labelTitle="Password"
+    placeholder="Enter your password..."
+    [value]="passwordValue()"
+    (valueChange)="passwordValue.set($event)"
+    errorLabel="Password is required"
+    [errorStatus]="passwordError()"
+    type="password"
+    class="my-3 block"
+  />
+
+  @if (submissionError()) {
+    <p class="tp5-regular text-pink-700 mt-4">{{ submissionError() }}</p>
+  }
+
+  <app-button type="primary" text="Register" (click)="onRegister()" class="mt-8 w-full" />
+
+  <p class="tp5-regular text-neutral-900 mt-6">
+    Already have an account? <a routerLink="/login" class="text-blue-600 underline">Login</a>
+  </p>
+</div>
