@@ -3,7 +3,7 @@
     class="flex flex-row gap-2 py-3 px-4 rounded-full border border-neutral-900 tp4-medium transition outline-none bg-neutral-0 text-neutral-900 hover:cursor-pointer focus:"
     (click)="toggle(); $event.stopPropagation()"
   >
-    All Categories
+    {{ selectedCategory() || 'All Categories' }}
     <img src="/icon-chevron-down.svg" alt="Chevron down icon" />
   </button>
   @if (isOpen()) {
@@ -12,31 +12,29 @@
       animate.enter="animate-dropdown"
       animate.leave="animate-leave"
     >
-      <app-categories-dropdown />
       <div
-        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center hover:cursor-pointer hover:bg-neutral-100"
+        class="category-option text-neutral-900 py-2 px-4 flex flex-row gap-2 justify-items-center items-center hover:cursor-pointer hover:bg-neutral-100"
+        [class.border-b]="categoryStats().length > 0"
+        (click)="selectCategory('')"
       >
-        <app-checkbox class="flex items-center" />
-        <p class="tp5-medium">Art <span class="text-neutral-600">(1)</span></p>
+        <app-checkbox class="flex items-center" [checked]="!selectedCategory()" />
+        <p class="tp5-medium">All Categories</p>
       </div>
-      <div
-        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center"
-      >
-        <app-checkbox class="flex items-center" />
-        <p class="tp5-medium">CSS <span class="text-neutral-600">(6)</span></p>
-      </div>
-      <div
-        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center"
-      >
-        <app-checkbox class="flex items-center" />
-        <p class="tp5-medium">Art <span class="text-neutral-600">(1)</span></p>
-      </div>
-      <div
-        class="text-neutral-900 py-2 px-4 border-b flex flex-row gap-2 justify-items-center items-center"
-      >
-        <app-checkbox class="flex items-center" />
-        <p class="tp5-medium">Art <span class="text-neutral-600">(1)</span></p>
-      </div>
+      @for (item of categoryStats(); track item.category; let isLast = $last) {
+        <div
+          class="category-option text-neutral-900 py-2 px-4 flex flex-row gap-2 justify-items-center items-center hover:cursor-pointer hover:bg-neutral-100"
+          [class.border-b]="!isLast"
+          (click)="selectCategory(item.category)"
+        >
+          <app-checkbox
+            class="flex items-center"
+            [checked]="selectedCategory() === item.category"
+          />
+          <p class="tp5-medium">
+            {{ item.category }} <span class="text-neutral-600">({{ item.count }})</span>
+          </p>
+        </div>
+      }
     </div>
   }
 </div>
