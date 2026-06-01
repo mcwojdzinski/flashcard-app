@@ -16,10 +16,23 @@ export class Button {
   isDisabled =  input<boolean>(false)
 
   baseClasses =
-  'flex flex-row gap-2 py-3 px-5 rounded-full border border-neutral-900 tp4-medium transition outline-none';
+  'w-full sm:w-auto flex flex-row items-center justify-center gap-2 py-3 px-5 rounded-full border border-neutral-900 tp4-medium transition outline-none';
 
   disabledClasses =
   'opacity-50 hover:shadow-input! hover:cursor-not-allowed!';
+
+  isIconOnly(): boolean {
+    const hasIcon = !!this.icon() || !!this.iconSecond();
+    return hasIcon && !this.text();
+  }
+
+  iconOnlyClasses(): string {
+    if (!this.isIconOnly()) {
+      return '';
+    }
+
+    return 'rounded-full aspect-square w-10 h-10 min-w-10 min-h-10 p-2 flex items-center justify-center';
+  }
 
   typeClasses() {
     switch (this.type()) {

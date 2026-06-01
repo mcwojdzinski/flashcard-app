@@ -1,0 +1,7 @@
+img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  max-width: unset;
+}

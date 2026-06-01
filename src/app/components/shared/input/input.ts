@@ -11,9 +11,10 @@ export class Input {
   labelTitle = input<string>();
   placeholder = input<string>();
   errorLabel = input<string>();
-  errorStatus = input<boolean>(true);
+  errorStatus = input<boolean>(false);
   value = input<string>('');
   valueChange = output<string>();
+  type = input<'text' | 'password' | 'email' | 'number' | 'search' | 'tel'>('text');
 
   onInputChange(event: Event) {
     const target = event.target as HTMLInputElement;

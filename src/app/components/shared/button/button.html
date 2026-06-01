@@ -1,6 +1,6 @@
 <button
   [disabled]="isDisabled()"
-  [ngClass]="[baseClasses, typeClasses(), isDisabled() ? disabledClasses : '']"
+  [ngClass]="[baseClasses, typeClasses(), iconOnlyClasses(), isDisabled() ? disabledClasses : '']"
 >
   @if (icon()) {
     <img [src]="icon()" />
