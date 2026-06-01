@@ -1,5 +1,6 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { ToastService } from './toast.service';
+import { FlashcardService } from './flashcard.service';
 
 export type DialogMode = 'edit' | 'delete' | null;
 
@@ -15,6 +16,7 @@ export interface DialogData {
 })
 export class DialogService {
   private toastService = inject(ToastService);
+  private flashcardService = inject(FlashcardService);
   isOpen = signal<boolean>(false);
   mode = signal<DialogMode>(null);
   data = signal<DialogData>({});
@@ -38,16 +40,33 @@ export class DialogService {
   }
 
   updateCard(data: DialogData) {
-    // Implement card update logic
-    console.log('Updating card:', data);
-    this.toastService.success('Card updated successfully.');
-    this.close();
+    if (!data.id) return;
+    try {
+      this.flashcardService.updateFlashcard(parseInt(data.id), {
+        question: data.question,
+        answer: data.answer,
+        category: data.category,
+      }).then(() => {
+        this.toastService.success('Card updated successfully.');
+        this.close();
+      }).catch((error: any) => {
+        this.toastService.error(error?.message || 'Failed to update card');
+      });
+    } catch (error: any) {
+      this.toastService.error(error?.message || 'Failed to update card');
+    }
   }
 
   deleteCard(id: string) {
-    // Implement card delete logic
-    console.log('Deleting card:', id);
-    this.toastService.success('Card deleted.');
-    this.close();
+    try {
+      this.flashcardService.deleteFlashcard(parseInt(id)).then(() => {
+        this.toastService.success('Card deleted.');
+        this.close();
+      }).catch((error: any) => {
+        this.toastService.error(error?.message || 'Failed to delete card');
+      });
+    } catch (error: any) {
+      this.toastService.error(error?.message || 'Failed to delete card');
+    }
   }
 }
